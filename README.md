@@ -22,3 +22,7 @@ Open the site [here](https://mohammadelhsn.github.io/CP104)
 - 🎨 Material Design – Clean UI powered by Material UI.
 - 🌙 Dark & Light Theme Support – Easily switch between modes.
 - 📚 Complete Course Reference – All assignments, labs, tasks, functions, and constants documented.
+
+## Status
+
+> 🔧 **Status: Actively Maintained** — this project is considered feature-complete but continues to receive updates & improvements.
