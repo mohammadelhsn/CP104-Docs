@@ -14,6 +14,7 @@ Open the site [here](https://mohammadelhsn.github.io/CP104)
 | TypeScript  | ![TypeScript](https://go-skill-icons.vercel.app/api/icons?i=ts)   |
 | NodeJS      | ![NodeJS](https://go-skill-icons.vercel.app/api/icons?i=nodejs)   |
 | Material UI | ![Material UI](https://go-skill-icons.vercel.app/api/icons?i=mui) |
+| GitHub Pages | ![GitHub Pages](https://go-skill-icons.vercel.app/api/icons?i=githubpages) |
 
 ## ✨ Features
 
