@@ -1,22 +1,19 @@
-// MUI Components
-
+/** ======= MUI COMPONENTS ======= */
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
 import Divider from '@mui/material/Divider';
 import Paper from '@mui/material/Paper';
-import { useTheme } from '@mui/material/styles';
 import Container from '@mui/material/Container';
 import Link from '@mui/material/Link';
-// Custom Components
 
+/** ======= CUSTOM COMPONENTS ======= */
 import SectionWrapper from '../components/Section';
 import TopicsAccordion from '../components/Topic';
 import TechList from '../components/TechList';
 import CardLinks from '../components/CardLinks';
 
-// Icons 
-
+/** ======= ICONS ======= */
 import ArticleIcon from '@mui/icons-material/Article';
 import TopicIcon from '@mui/icons-material/Topic';
 import SummarizeIcon from '@mui/icons-material/Summarize';
@@ -31,16 +28,14 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 import LightbulbIcon from '@mui/icons-material/Lightbulb';
 
-
-// Data 
-
+/** ======= STYLE & SETTINGS ======= */
 import Settings from '../data/Settings';
-import { textStyle } from '../data/Styles';
+import { containerStyles, iconStyles, textStyle } from '../data/Styles';
 
-const CP264DocsMain = () => {
-	const theme = useTheme();
+/** HOME PAGE FOR THIS REPO */
+const CP104HomePage = () => {
 	return (
-		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
+		<Container maxWidth="lg" sx={containerStyles}>
 			<Box>
 				<Typography
 					variant="h2"
@@ -48,17 +43,13 @@ const CP264DocsMain = () => {
 				>
 					<DataObjectIcon
 						fontSize="inherit"
-						sx={{
-							color: 'primary.main',
-							mr: 1.5,
-						}}
+						sx={iconStyles}
 					/>
 					{Settings.courseName}
 				</Typography>
-
 				<Typography
 					variant="h5" // smaller than h3 to improve visual hierarchy under h2
-					color="text.secondary"
+					color='textSecondary'
 					sx={{
 						fontStyle: 'italic',
 					}}
@@ -80,7 +71,7 @@ const CP264DocsMain = () => {
 					component="pre"
 					elevation={3}
 					sx={{
-						color: theme.palette.text.primary,
+						color: ({ palette }) => palette.text.primary,
 						p: 2,
 						borderRadius: 1,
 						fontFamily: 'monospace',
@@ -144,10 +135,7 @@ const CP264DocsMain = () => {
 							sx={textStyle}
 						>
 							<NoteAltIcon fontSize="inherit"
-								sx={{
-									color: 'primary.main',
-									mr: 1.5,
-								}} /> Notes
+								sx={iconStyles} /> Notes
 						</Typography>
 						<Divider sx={{ my: 2 }} />
 						<Typography variant="body1" color="text.secondary">
@@ -174,18 +162,12 @@ const CP264DocsMain = () => {
 							sx={textStyle}
 						>
 							<ContactSupportIcon fontSize="inherit"
-								sx={{
-									color: 'primary.main',
-									mr: 1.5,
-								}} /> Contact
+								sx={iconStyles} /> Contact
 						</Typography>
 						<Divider sx={{ my: 2 }} />
 						<Typography variant="body1" color="text.secondary" sx={textStyle} component={'pre'}>
 							<GitHubIcon fontSize="inherit"
-								sx={{
-									color: 'primary.main',
-									mr: 1.5,
-								}} /> GitHub:{' '}
+								sx={iconStyles} /> GitHub:{' '}
 							<Link
 								href={Settings.github}
 								target="_blank"
@@ -205,10 +187,7 @@ const CP264DocsMain = () => {
 						</Typography>
 						<Typography variant="body1" color="text.secondary" sx={textStyle} component='pre'>
 							<ContactMailIcon fontSize="inherit"
-								sx={{
-									color: 'primary.main',
-									mr: 1.5,
-								}} /> Email:{' '}
+								sx={iconStyles} /> Email:{' '}
 							<Link
 								href={`mailto:${Settings.email}`}
 								target="_blank"
@@ -234,4 +213,4 @@ const CP264DocsMain = () => {
 	);
 };
 
-export default CP264DocsMain;
+export default CP104HomePage;

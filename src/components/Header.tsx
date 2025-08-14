@@ -1,9 +1,7 @@
-// React
+/** ======= REACT ======= */
+import { type FC } from 'react';
 
-import React from 'react';
-
-// Material UI 
-
+/** ======= MUI COMPONENTS ======= */
 import Button from '@mui/material/Button';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -13,18 +11,15 @@ import Box from '@mui/material/Box';
 import { styled, useTheme } from '@mui/material/styles';
 import Link from '@mui/material/Link';
 
-// Icons 
-
+/** ======= ICONS ======= */
 import DarkModeIcon from '@mui/icons-material/DarkModeOutlined';
 import LightModeIcon from '@mui/icons-material/LightModeOutlined';
 
-// Interfaces
+/** ======= STYLES & PROPS ======= */
+import { divCenter } from '../data/Styles';
+import type { HeaderProps } from '../data/Data';
 
-interface HeaderProps {
-	mode: 'light' | 'dark';
-	toggleColorMode: () => void;
-}
-
+/** ======= EXTERNAL LINK ======= */
 const StyledExternalLink = styled(Link)(({ theme }) => ({
 	color: 'inherit',
 	textDecoration: 'none',
@@ -37,14 +32,15 @@ const StyledExternalLink = styled(Link)(({ theme }) => ({
 	},
 }));
 
-const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
+/** ======= HEADER FOR THE PROJECT ======= */
+const Header: FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 	const theme = useTheme();
 	return (
 		<AppBar
 			position="static"
 			sx={{
-				bgcolor: (theme) => theme.palette.background.default,
-				color: (theme) => theme.palette.text.primary,
+				bgcolor: ({ palette }) => palette.background.default,
+				color: ({ palette }) => palette.text.primary,
 			}}
 		>
 			<Toolbar>
@@ -52,10 +48,8 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 					width: 48,
 					height: 48,
 					borderRadius: '50%',
-					backgroundColor: 'primary.main',
-					display: 'flex',
-					alignItems: 'center',
-					justifyContent: 'center',
+					backgroundColor: ({ palette }) => palette.primary.main,
+					...divCenter,
 					overflow: 'hidden',
 					mr: 1
 				}}>
@@ -92,14 +86,14 @@ const Header: React.FC<HeaderProps> = ({ mode, toggleColorMode }) => {
 						p: 0.75,
 						transition: 'all 0.3s ease',
 						'&:hover': {
-							backgroundColor: theme.palette.action.hover,
+							backgroundColor: ({ palette }) => palette.action.hover,
 						}
 					}}
 				>
 					{mode === 'light' ? (
-						<DarkModeIcon sx={{ color: theme.palette.primary.main }} />
+						<DarkModeIcon sx={{ color: ({ palette }) => palette.primary.main }} />
 					) : (
-						<LightModeIcon sx={{ color: theme.palette.primary.main }} />
+						<LightModeIcon sx={{ color: ({ palette }) => palette.primary.main }} />
 					)}
 				</IconButton>
 

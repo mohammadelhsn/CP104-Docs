@@ -1,21 +1,22 @@
-// MUI Components
-
+/** ======= MUI COMPONENTS ======= */
 import Link from '@mui/material/Link';
 import Paper from '@mui/material/Paper';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import Divider from '@mui/material/Divider';
 import Button from '@mui/material/Button';
+
+/** ======= MUI ICONS ======= */
 import AssignmentIcon from '@mui/icons-material/Assignment';
 import TaskIcon from '@mui/icons-material/Task';
 import BiotechIcon from '@mui/icons-material/Biotech';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 
-// Data
-
+/** ======= TYPES & STYLES ======= */
 import { type AssignmentItemOpts } from '../data/Data';
-import { buttonStyles, cardActionStyles, cardBodyStyles } from '../data/Styles';
+import { buttonStyles, cardActionStyles, cardBodyStyles, iconStyles } from '../data/Styles';
 
+/** LIST ITEM */
 const ListItemComp = (opts: AssignmentItemOpts) => {
 	const Icon = opts.type == 'assignment' ? AssignmentIcon : opts.type == 'lab' ? BiotechIcon : opts.type == 'task' ? TaskIcon : MenuBookIcon;
 	return (
@@ -33,12 +34,16 @@ const ListItemComp = (opts: AssignmentItemOpts) => {
 			<Box sx={{ flexGrow: 1 }}>
 				<Typography
 					variant="h4"
-					sx={{ display: 'flex', alignItems: 'center', mb: 1, flexWrap: 'wrap', wordBreak: 'break-word', }}
+					mb={1}
+					display='flex'
+					alignItems={'center'}
+					flexWrap='wrap'
+					sx={{ wordBreak: 'break-word', }}
 				>
 					{(
 						<Icon
 							fontSize="inherit"
-							sx={{ color: 'primary.main', mr: 1.5 }}
+							sx={iconStyles}
 						/>
 					)}
 					{`${opts.type}` == 'assignment'

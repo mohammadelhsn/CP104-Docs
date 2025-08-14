@@ -1,38 +1,26 @@
-// React
-
+/** ======= REACT ======= */
 import { useState, useEffect } from 'react';
 
-// Types 
-
-import type { TechItemOpts } from '@mohammadelhsn/portfolio-api-wrapper/dist/interfaces/Interfaces';
-
-// MUI Components
-
+/** ======= MUI COMPONENTS ======= */
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
 import Paper from '@mui/material/Paper';
 
-// Custom Components
-
-import TechItem from './TechItem';
-import Loading from './Loading';
-
-// Icons
-
+/** ======= MUI ICONS ======= */
 import TerminalIcon from '@mui/icons-material/Terminal';
 import CodeIcon from '@mui/icons-material/Code';
 import GitHubIcon from '@mui/icons-material/GitHub';
 
-// Types
+/** ======= CUSTOM COMPONENTS ======= */
+import TechItem from './TechItem';
+import Loading from './Loading';
 
+/** ======= TYPES & SETTINGS ======= */
 import type { SvgIconComponent } from '@mui/icons-material';
-
-// Settings
-
+import type { TechItemOpts } from '@mohammadelhsn/portfolio-api-wrapper/dist/interfaces/Interfaces';
 import Settings from '../data/Settings';
 
-// Tech List
-
+/** TECH LIST */
 const TechList = () => {
 	const [techList, setTechList] = useState<TechItemOpts[]>([]);
 	const [loading, setLoading] = useState(true);
@@ -46,11 +34,7 @@ const TechList = () => {
 			setLoading(false);
 		})();
 	}, []);
-	if (loading) {
-		return (
-			<Loading />
-		);
-	}
+	if (loading) return (<Loading />);
 	return (
 		<List component={Paper} elevation={3}>
 			{techList.map(({ bolded, nonBolded }, idx) => {

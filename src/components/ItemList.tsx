@@ -1,20 +1,28 @@
+/** ======= REACT ======= */
 import { useEffect, useState } from 'react';
+
+/** ======= MUI COMPONENTS ======= */
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+
+/** ======= MUI ICONS ======= */
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
+
+/** ======= CUSTOM COMPONENTS ======= */
 import ListItem from './ListItem';
-
-import {
-	type TaskData,
-	type ItemListOpts,
-	type AssessmentDataType,
-	type ExampleData,
-} from '../data/Data';
-
-import Settings from '../data/Settings';
 import Loading from './Loading';
 
+/** ======= DATA & SETTINGS ======= */
+import type {
+	TaskData,
+	ItemListOpts,
+	AssessmentDataType,
+	ExampleData,
+} from '../data/Data';
+import Settings from '../data/Settings';
+
+/** ======= ITEM LIST ======= */
 const ItemList = (opts: ItemListOpts) => {
 	const baseUrl =
 		import.meta.env.MODE === 'production'
@@ -25,7 +33,6 @@ const ItemList = (opts: ItemListOpts) => {
 	const [length, setLength] = useState<number>(0);
 	const [exampleData, setExampleData] = useState<ExampleData[]>([]);
 	const [loading, setLoading] = useState(true);
-
 	useEffect(() => {
 		(async () => {
 			setLoading(true);
@@ -36,7 +43,7 @@ const ItemList = (opts: ItemListOpts) => {
 					: await Settings.api.getAssignment(opts.taskStr.slice(-2));
 				if (res?.success && res.data && !Array.isArray(res.data)) {
 					const data = res.data as AssessmentDataType;
-					let taskList = [...data.tasks];
+					const taskList = [...data.tasks];
 					if (
 						data.functions &&
 						data.functions.length > 0 &&
@@ -92,7 +99,6 @@ const ItemList = (opts: ItemListOpts) => {
 			</Container>
 		);
 	}
-
 	return (
 		<Grid container spacing={3} sx={{ mt: 2 }}>
 			{Array.from({ length }, (_, i) => {

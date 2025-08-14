@@ -1,15 +1,13 @@
-// MUI Components 
-
+/** ======= MUI COMPONENTS ======= */
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 
-// Data
-
+/** ======= TYPES & STYLES ======= */
 import type { TechItemOpts } from '../data/Data';
+import { iconStyles } from '../data/Styles';
 
-// Tech Item
-
+/** TECH ITEM */
 const TechItem = (opts: TechItemOpts) => {
 	return (
 		<ListItem>
@@ -19,10 +17,7 @@ const TechItem = (opts: TechItemOpts) => {
 						{opts.icon && (
 							<opts.icon
 								fontSize="inherit"
-								sx={{
-									color: 'primary.main',
-									mr: 1.5,
-								}}
+								sx={iconStyles}
 							/>
 						)}
 						<strong>{opts.bolded}</strong>&nbsp;{opts.nonBolded}

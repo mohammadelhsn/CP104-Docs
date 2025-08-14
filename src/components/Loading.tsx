@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import CircularProgress from '@mui/material/CircularProgress';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
+import { divCenter } from '../data/Styles';
 
 // Loading Page
 
@@ -11,10 +12,8 @@ export default function Loading() {
     return (
         <Container maxWidth="sm">
             <Box
-                display="flex"
+                sx={{ ...divCenter }}
                 flexDirection="column"
-                alignItems="center"
-                justifyContent="center"
                 height="70vh"
                 textAlign="center"
             >

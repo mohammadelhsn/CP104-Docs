@@ -1,21 +1,18 @@
-// MUI Components
-
+/** ======= MUI COMPONENTS ======= */
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import IconButton from '@mui/material/IconButton';
 
-// Data
-
-import Settings from '../data/Settings';
-
-// Icons 
+/** ======= ICONS ======= */
 
 import LinkedIn from '@mui/icons-material/LinkedIn';
 import GitHub from '@mui/icons-material/GitHub';
 import Email from '@mui/icons-material/Email';
 
-// Footer component
+/** ======= DATA SETTINGS ======= */
+import Settings from '../data/Settings';
 
+// Footer component
 const Footer = () => {
 	return (
 		<Box component="footer" textAlign="center" py={4} sx={{

@@ -1,9 +1,7 @@
-// React
-
+/** ======= REACT ======= */
 import { useEffect, useState } from 'react';
 
-// MUI Components
-
+/** ======= MUI COMPONENTS ======= */
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
@@ -12,24 +10,20 @@ import Divider from '@mui/material/Divider';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
-// Types
-
-import type { TopicOpts } from '@mohammadelhsn/portfolio-api-wrapper/dist/interfaces/Interfaces';
-import type { SvgIconComponent } from '@mui/icons-material';
-
-// Icons
-
-import Loading from './Loading';
+/** ======= ICONS ======= */
 import PsychologyIcon from '@mui/icons-material/Psychology';
 import CodeIcon from '@mui/icons-material/Code';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 
-// Settings for API access
+/** ======= CUSTOM COMPONENTS ======= */
+import Loading from './Loading';
 
+/** ======= SETTINGS & TYPES ======= */
 import Settings from '../data/Settings';
+import type { TopicOpts } from '@mohammadelhsn/portfolio-api-wrapper/dist/interfaces/Interfaces';
+import type { SvgIconComponent } from '@mui/icons-material';
 
-// Topics
-
+/** Topics */
 const Topics = () => {
 	const [topics, setTopics] = useState<TopicOpts[]>([]);
 	const [loading, setLoading] = useState(true);

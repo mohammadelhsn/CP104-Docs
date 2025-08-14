@@ -1,12 +1,25 @@
 import type { LabsAssignmentOpt } from './Data';
 import Settings from './Settings';
 
-function Capitalize(str: string) {
+/**
+ * Returns the capitalized version of the string.
+ *
+ * @param {string} str - The string to be capitalized.
+ * @return {string} The capitalized version of the string.
+ * @see https://stackoverflow.com/questions/1026069/how-do-i-make-the-first-letter-of-a-string-uppercase-in-javascript
+ */
+export function capitalize(str: string) {
 	return String(str).charAt(0).toUpperCase() + String(str).slice(1);
 }
 
-export function getItemType(str: string, capitalize?: boolean) {
-	if (capitalize != true) {
+/**
+ *
+ * @param str
+ * @param cap
+ * @returns
+ */
+export function getItemType(str: string, cap?: boolean) {
+	if (cap != true) {
 		return str === 'assignment'
 			? 'assignments'
 			: str === 'example'
@@ -19,10 +32,15 @@ export function getItemType(str: string, capitalize?: boolean) {
 				: str === 'example'
 				? 'examples'
 				: 'labs';
-		return Capitalize(str1);
+		return capitalize(str1);
 	}
 }
 
+/**
+ *
+ * @param str
+ * @returns
+ */
 export function enableFile(str: LabsAssignmentOpt) {
 	if (str == 'assignment') {
 		if (

@@ -1,5 +1,7 @@
+/** ======= MUI TYPES ======= */
 import type { Theme } from '@mui/material';
-import { type ElementType } from 'react';
+/** ======= REACT TYPES ======= */
+import type { ElementType } from 'react';
 
 export type SettingOpts = {
 	exampleEnable?: boolean;
@@ -22,56 +24,52 @@ export type SettingOpts = {
 	baseAssignment?: string;
 };
 
-/**
- *
- */
-export const baseURL = 'https://mohammadelhsn.github.io/';
-
-/**
- *
- */
-export interface pageData {
-	title: string;
-	description: string;
-	numberOfEntries: number;
-}
-
-export type ItemType = 'lab' | 'example' | 'assignment' | 'task';
+/** The type of the item */
+type ItemType = 'lab' | 'example' | 'assignment' | 'task';
 export interface ItemListOpts {
+	/** The type of the item */
 	itemType: ItemType;
+	/** The count of the item */
 	count?: number;
+	/**  */
 	taskStr?: string;
+	/**  */
 	isFile?: boolean;
 }
 
 export interface AssignmentItemOpts {
+	/**  */
 	key: number;
+	/** */
 	link: string;
+	/** */
 	adds: string;
+	/** */
 	type: ItemType;
 }
 
 export interface SectionOpts {
+	/** The title for the section */
 	title: string;
+	/** The children for the component */
 	children: React.ReactNode;
-	icon?: ElementType;
-}
-
-export interface TopicOpts {
-	eventKey: string;
-	title: string;
-	items: string[];
+	/** The icon for the section title */
 	icon?: ElementType;
 }
 
 export interface ExampleData {
+	/** The title of the example */
 	title: string;
+	/** The URL of the example */
 	url: string;
 }
 
 export interface TechItemOpts {
+	/** The title */
 	bolded: string;
+	/** The description */
 	nonBolded: string;
+	/** The icon for the item */
 	icon?: ElementType;
 }
 
@@ -86,20 +84,47 @@ export interface TaskData {
 	name: string;
 	id: string; // id: t{num}
 	description: string;
-	objectives: string[]; // list of goals or objectives
-	sampleOutput: string; // example output or result, as a string
-	skills: string[]; // skills or tech demonstrated, e.g. ["Python", "Multiline Strings"]
+	/** List of goals or objectives */
+	objectives: string[];
+	/** Example output or result as a string */
+	sampleOutput: string;
+	/** Skills or tech demonstrated, e.g. ["Python", "Multiline Strings"] */
+	skills: string[];
 }
 
-export interface ConstantsData {
+interface ConstantsData {
+	/** The name of the constant */
 	name: string;
+	/** The value of the constant */
 	value: string;
+	/** The description of the constant */
 	description?: string;
 }
-export interface FunctionsData {
+interface FunctionsData {
+	/** The name of the function */
 	functionName: string;
+	/** The signature of the function */
 	signature: string;
+	/** The description of the function */
 	description: string;
+}
+
+export interface AssessmentDataType {
+	/** The name of the lab/assignment */
+	name: string;
+	/** The count of the lab/assignment */
+	id: string;
+	/** Array of task data */
+	tasks: TaskData[];
+	/** Array of functions data */
+	functions?: FunctionsData[];
+	/** Array of constants data */
+	constants?: ConstantsData[];
+}
+
+export type LabsAssignmentOpt = 'assignment' | 'lab' | 'example';
+export interface LabsAssignmentsOpts {
+	type: LabsAssignmentOpt;
 }
 
 export interface FunctionPageProps {
@@ -107,19 +132,8 @@ export interface FunctionPageProps {
 	functions: FunctionsData[];
 	parent: string;
 }
-export interface AssessmentDataType {
-	name: string;
-	id: string;
-	tasks: TaskData[];
-	functions?: FunctionsData[];
-	constants?: ConstantsData[];
-}
 
-export interface FunctionsPageProps {
-	data: FunctionsData;
-}
-
-export type LabsAssignmentOpt = 'assignment' | 'lab' | 'example';
-export interface LabsAssignmentsOpts {
-	type: LabsAssignmentOpt;
+export interface HeaderProps {
+	mode: 'light' | 'dark';
+	toggleColorMode: () => void;
 }

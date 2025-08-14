@@ -1,33 +1,37 @@
+/** ======= REACT ======= */
 import { useNavigate } from 'react-router-dom';
 
-// MUI Components
-
+/** ======= MUI COMPONENTS ======= */
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import Chip from '@mui/material/Chip';
 import Paper from '@mui/material/Paper';
 import IconButton from '@mui/material/IconButton';
-import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import Container from '@mui/material/Container';
+import Divider from '@mui/material/Divider';
+
+/** ======= MUI ICONS ======= */
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import LockIcon from '@mui/icons-material/Lock';
 import FunctionsIcon from '@mui/icons-material/Functions';
 import NumbersIcon from '@mui/icons-material/Numbers';
 import BuildIcon from '@mui/icons-material/Build';
 import SentimentVeryDissatisfiedIcon from '@mui/icons-material/SentimentVeryDissatisfied';
 
-// Data
-
-import { type FunctionPageProps } from '../data/Data';
+/** ======= CUSTOM COMPONENTS ======= */
 import SectionWrapper from '../components/Section';
-import { textStyle, iconStyles, dividerStyle } from '../data/Styles';
-import { Divider } from '@mui/material';
 
+/** ======= DATA & STYLES ======= */
+import { type FunctionPageProps } from '../data/Data';
+import { textStyle, iconStyles, dividerStyle, containerStyles } from '../data/Styles';
+
+/** Functions Page */
 const FunctionsPage = (opts: FunctionPageProps) => {
 	const { functions = [], constants = [] } = opts;
 	const navigate = useNavigate();
 	return (
-		<Container maxWidth="lg" sx={{ px: { xs: 2, sm: 3 }, py: { xs: 4, sm: 6 } }}>
+		<Container maxWidth="lg" sx={containerStyles}>
 			<Box>
 				<IconButton onClick={() => navigate(-1)} aria-label="Go back" sx={{ mb: 1 }}>
 					<ArrowBackIcon />
@@ -37,7 +41,7 @@ const FunctionsPage = (opts: FunctionPageProps) => {
 				</Typography>
 				<Typography
 					variant="h5"
-					color="text.secondary"
+					color='textSecondary'
 					sx={{ fontStyle: 'italic' }}
 				>
 					{opts.parent} Functions
@@ -122,7 +126,7 @@ const FunctionsPage = (opts: FunctionPageProps) => {
 								>
 									{fn.signature}
 								</Typography>
-								<Typography variant="body1" color="text.secondary">
+								<Typography variant="body1" color='textSecondary'>
 									{fn.description}
 								</Typography>
 							</Paper>
@@ -132,7 +136,7 @@ const FunctionsPage = (opts: FunctionPageProps) => {
 			</SectionWrapper>
 			{
 				functions.length === 0 && constants.length === 0 && (
-					<Typography mt={4} textAlign="center" color="text.secondary">
+					<Typography mt={4} textAlign="center" color='textSecondary'>
 						No functions or constants to display.
 					</Typography>
 				)
