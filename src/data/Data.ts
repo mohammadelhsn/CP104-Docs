@@ -25,7 +25,7 @@ export type SettingOpts = {
 };
 
 /** The type of the item */
-type ItemType = 'lab' | 'example' | 'assignment' | 'task';
+export type ItemType = 'lab' | 'example' | 'assignment' | 'task';
 export interface ItemListOpts {
 	/** The type of the item */
 	itemType: ItemType;
@@ -92,7 +92,7 @@ export interface TaskData {
 	skills: string[];
 }
 
-interface ConstantsData {
+export interface ConstantsData {
 	/** The name of the constant */
 	name: string;
 	/** The value of the constant */
@@ -100,7 +100,7 @@ interface ConstantsData {
 	/** The description of the constant */
 	description?: string;
 }
-interface FunctionsData {
+export interface FunctionsData {
 	/** The name of the function */
 	functionName: string;
 	/** The signature of the function */

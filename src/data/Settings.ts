@@ -3,7 +3,7 @@ import { lightTheme, darkTheme } from './Theme';
 import type { SettingOpts } from './Data';
 import API from '@mohammadelhsn/portfolio-api-wrapper';
 
-class SettingsClass {
+export class SettingsClass {
 	exampleEnable: boolean;
 	assignmentNumbersDisable: boolean;
 	assignmentTasksDisable: boolean;

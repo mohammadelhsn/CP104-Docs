@@ -1,0 +1,7 @@
+// typedoc.json
+{
+	"entryPoints": ["src"],
+	"out": "docs",
+	"tsconfig": "tsconfig.json", // Reference your main tsconfig
+	"entryPointStrategy": "expand"
+}
