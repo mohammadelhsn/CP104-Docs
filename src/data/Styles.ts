@@ -35,6 +35,7 @@ export const sampleOutput: SxProps = {
 	whiteSpace: 'pre-wrap',
 };
 
+/** Default text styles */
 export const textStyle = {
 	display: 'flex',
 	alignItems: 'center', // use "center" instead of "top" for visual balance
@@ -43,16 +44,19 @@ export const textStyle = {
 	wordBreak: 'break-word', // break long words if needed
 };
 
+/** Icon Styles */
 export const iconStyles = {
 	color: 'primary.main',
 	mr: 1.5,
 };
 
+/** The default container styles */
 export const containerStyles: SxProps = {
 	px: { xs: 2, sm: 3 },
 	py: { xs: 4, sm: 6 },
 };
 
+/** Styles to center anything */
 export const divCenter: SxProps = {
 	display: 'flex',
 	alignItems: 'center',

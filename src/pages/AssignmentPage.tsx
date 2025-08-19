@@ -43,15 +43,20 @@ const LabAssignmentPage = (opts: LabsAssignmentsOpts) => {
 					if (res?.data) {
 						setDataSource(res.data as AssessmentDataType);
 					}
+					else {
+						setDataSource(undefined);
+					}
 				} else {
 					const res = await Settings.api.getLab(assessmentNum);
 					if (res?.data) {
 						setDataSource(res.data as AssessmentDataType);
+					} else {
+						setDataSource(undefined);
 					}
 				}
-			} catch (err) {
-				// TODO: Bring over a global snackbar
-				console.error('Failed to fetch data:', err);
+			} catch {
+				// No need to log anything here, your wrapper already does it
+				setDataSource(undefined);
 			} finally {
 				setLoading(false);
 			}

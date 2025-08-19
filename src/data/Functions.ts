@@ -13,10 +13,11 @@ export function capitalize(str: string) {
 }
 
 /**
+ * Converts an item type string to its plural form, with an option to capitalize it.
  *
- * @param str
- * @param cap
- * @returns
+ * @param {string} str - The singular item type (e.g., 'assignment', 'lab').
+ * @param {boolean} [cap=false] - Whether to capitalize the output string.
+ * @returns {string} The plural and optionally capitalized version of the item type.
  */
 export function getItemType(str: string, cap?: boolean) {
 	if (cap != true) {
@@ -37,9 +38,11 @@ export function getItemType(str: string, cap?: boolean) {
 }
 
 /**
+ * Checks if a given assessment type should link to a static HTML file instead of a route.
+ * This is based on the global settings which can disable dynamic pages for labs or assignments.
  *
- * @param str
- * @returns
+ * @param {LabsAssignmentOpt} str - The type of assessment ('assignment', 'lab', or 'example').
+ * @returns {boolean} `true` if the link should be to a static file, `false` otherwise.
  */
 export function enableFile(str: LabsAssignmentOpt) {
 	if (str == 'assignment') {

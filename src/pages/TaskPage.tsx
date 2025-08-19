@@ -55,6 +55,9 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 
 				if (res?.data) {
 					setTaskData(res.data as TaskData);
+				} else {
+					setTaskData(null);
+					return;
 				}
 
 				// Also fetch the full parent section (lab or assignment) to use later
@@ -64,6 +67,9 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 
 				if (sectionRes?.data) {
 					setParentSection(sectionRes.data as AssessmentDataType);
+				}
+				else {
+					setParentSection(null);
 				}
 			} catch (e) {
 				console.error('Failed to fetch task:', e);
@@ -77,6 +83,15 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 
 	// Handle loading or error
 	if (loading) return (<Loading />);
+	// TODO: MOVE THIS TO ITS OWN COMP
+	if (!taskData || !parentSection) {
+		return (
+			<Container maxWidth="md" sx={{ mt: 8, textAlign: 'center', flexGrow: 1 }}>
+				<SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, color: 'error.main', mb: 2 }} />
+				<Typography variant="h5">❌ Task not found</Typography>
+			</Container>
+		);
+	}
 
 	if (parentSection?.functions && task === 'functions') {
 		return (
@@ -85,15 +100,6 @@ const TaskDisplay = (opts: LabsAssignmentsOpts) => {
 				constants={parentSection.constants || []}
 				parent={num || ''}
 			/>
-		);
-	}
-	// TODO: MOVE THIS TO ITS OWN COMP
-	if (!taskData || !parentSection) {
-		return (
-			<Container maxWidth="md" sx={{ mt: 8, textAlign: 'center', flexGrow: 1 }}>
-				<SentimentVeryDissatisfiedIcon sx={{ fontSize: 60, color: 'error.main', mb: 2 }} />
-				<Typography variant="h5">❌ Task not found</Typography>
-			</Container>
 		);
 	}
 
